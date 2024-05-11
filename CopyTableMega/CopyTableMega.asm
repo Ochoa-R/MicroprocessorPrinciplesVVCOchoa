@@ -20,6 +20,7 @@ RESET:
 		LDI 	TEMP, 0xFF
 		OUT 	DDRD, TEMP
 
+; COPIES A TABLE OF DATA INTO SRAM
 		LDI 	XH, high(SRAM_START + $20)
 		LDI 	XL, low(SRAM_START + $20)
 
@@ -38,6 +39,7 @@ CopyNext:
 
 		LDI 	XH, high(SRAM_START + $20)
 		LDI 	XL, low(SRAM_START + $20)
+; END OF COPY CODE
 
 TimerConfigure:
 		LDI 	TEMP, (1<<TOIE0)
