@@ -1,0 +1,2 @@
+@ECHO OFF
+"C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\avrasm2.exe" -S "C:\Users\Anton\Documents\Atmel Projects\CopyTableMega\labels.tmp" -fI -W+ie -C V2E -o "C:\Users\Anton\Documents\Atmel Projects\CopyTableMega\CopyTableMega.hex" -d "C:\Users\Anton\Documents\Atmel Projects\CopyTableMega\CopyTableMega.obj" -e "C:\Users\Anton\Documents\Atmel Projects\CopyTableMega\CopyTableMega.eep" -m "C:\Users\Anton\Documents\Atmel Projects\CopyTableMega\CopyTableMega.map" "C:\Users\Anton\Documents\Atmel Projects\CopyTableMega\CopyTableMega.asm"
