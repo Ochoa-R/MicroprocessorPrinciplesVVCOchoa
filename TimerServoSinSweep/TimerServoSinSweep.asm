@@ -1,4 +1,5 @@
 ; ANTONIO OCHOA
+; FOR ATmega328P
 ; need to figure out how exactly to add contents of program memory to pwmH:pwmL
 
 ; Sweep a servo motor in a sinusoidal motion by reading a table of values to 
