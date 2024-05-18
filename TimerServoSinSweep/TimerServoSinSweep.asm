@@ -107,11 +107,15 @@ HERE:
 	RJMP 	HERE
 
 moveServo:
-	LPM 	TEMP, Z+
-	ADD 	pwmL, TEMP
-	STS		OCR1AH, pwmH
+	LPM 	TEMPL, Z+
+	CLR 	TEMPH
+	SBRC 	TEMPL, 7
+	SER 	TEMPH
+	ADD 	pwmL, TEMPL
+	ADC 	pwmH, TEMPH
+	STS	OCR1AH, pwmH
 	STS 	OCR1AL, pwmL
-	CP		ZL, YL
+	CP	ZL, YL
 	CPC 	ZH, YH
 	BRNE 	goBack
 	LDI 	ZH, high(TABLEaddr<<1)
