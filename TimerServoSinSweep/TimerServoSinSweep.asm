@@ -1,8 +1,4 @@
 ; ANTONIO OCHOA
-; FOR ATmega328P
-; Sinusoidal Movement Tables from harrimand on github
-; need to figure out how exactly to add contents of program memory to pwmH:pwmL
-
 ; Sweep a servo motor in a sinusoidal motion by reading a table of values to 
 ;     add to the Output Compare Register.  
 ; Use Timer 2 output compare interrupt to trigger an interrupt every 20 mS to update servo position.
@@ -109,13 +105,13 @@ HERE:
 moveServo:
 	LPM 	TEMPL, Z+
 	CLR 	TEMPH
-	SBRC 	TEMPL, 7
-	SER 	TEMPH
+	SBRC 	TEMPL, 7 ; CHECK IF NEGATIVE
+	SER 	TEMPH ; SET ALL BITS IN HIGH REGISTER TO MAKE NEGATIVE 16 BIT NUMBER
 	ADD 	pwmL, TEMPL
 	ADC 	pwmH, TEMPH
-	STS	OCR1AH, pwmH
+	STS		OCR1AH, pwmH
 	STS 	OCR1AL, pwmL
-	CP	ZL, YL
+	CP		ZL, YL
 	CPC 	ZH, YH
 	BRNE 	goBack
 	LDI 	ZH, high(TABLEaddr<<1)
